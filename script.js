@@ -2,13 +2,15 @@
 
 function obtainInfo() {
     //First, ask the user how long they would like the password to be with a prompt (have them choose between 8 and 128)
-    var passLength = parseInt(prompt("How many characters would you like your password to have? (Minumum 8 to Maxumum 128)")) 
-    while(typeof passLength !== Number) { 
+    var passLength = parseInt(prompt("How many characters would you like your password to have? (Minumum 8 to Maxumum 128)"),10);
+    while(isNaN(passLength) === true || passLength === "" || passLength === null) { 
         prompt("Oops! No number was entered.  Try again!"); 
     } 
-    // while(passLength < 8 || passLength > 128) {
-    //     prompt("Number of characters must be between 8 and 128.  Try again!");
-    // }
+    while(passLength < 8 || passLength > 128) {
+        prompt("Number of characters must be between 8 and 128.  Try again!");
+    }
+    alert("Thank you, please select from the following character types.")
+    
     charType(passLength);
 };
 
@@ -28,14 +30,13 @@ function charType(passLength) {
         passLength
     });
 };
-
-// Display a validation alert of what the user has requested********
+//Validate selections
 function validateWndow(userChoices) {
-    alert("You have selected a password " + userChoices.passLength + " characters in length, using the following: /r/n Uppercase: " + userChoices.passwordUpper + "Lowercase: " + userChoices.passwordLower + "\r\n Number: " + userChoices.passwordNum + "/r/nSpecial Characters: " + userChoices.passwordSpec)
+    alert("You have selected a password " + userChoices.passLength + " characters in length, using the following:  \r\nUppercase: " + userChoices.passwordUpper + "\r\nLowercase: " + userChoices.passwordLower + "\r\nNumber: " + userChoices.passwordNum + "\r\nSpecial Characters: " + userChoices.passwordSpec)
     writePassword(userChoices);
 };
 
-//Validate selections
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
