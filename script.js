@@ -8,7 +8,7 @@ function obtainInfo() {
         alert("Oops! No number was entered.  Try again!");
     }
     else if(isNaN(passLength) === true || passLength === "" || passLength === null || passLength < 8 || passLength > 128) { 
-        prompt("Oops! No number was entered or input does not match criteria.  Try again!"); 
+        prompt("Oops! No number was entered or input does not match criteria.  Try again!")
     } 
     alert("Thank you, please select from the following character types.")
     console.log("obtain info function");
@@ -93,17 +93,17 @@ function validateWndow(passwordUpper,passwordLower,passwordNum,passwordSpec,pass
 //     }
 var passString = userChoices.join("");
 console.log(passString);
-writePassword(passString);
+writePassword(passString, passLength);
 };
 
 function writePassword(passwordChars, passLength) {
-    var password= "";
-    for (var i = 0; i < length; i++) {
+    var password = "";
+
+    for (var i = 0; i < passLength; i++) {
         password += passwordChars.charAt(Math.floor(Math.random() * passwordChars.length));
-        
     }
     console.log(password);
-};
+}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
