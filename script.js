@@ -96,13 +96,13 @@ console.log(passString);
 writePassword(passString);
 };
 
-function writePassword(createdPassword) {
+function writePassword(passwordChars, passLength) {
+    var password= "";
     for (var i = 0; i < length; i++) {
-        var createdPassword = passString.charAt(Math.floor(Math.random() * passLength));
-        console.log(createdPassword);
-        password.push(createdPassword);
+        password += passwordChars.charAt(Math.floor(Math.random() * passwordChars.length));
+        
     }
-    console.log(createdPassword);
+    console.log(password);
 };
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
