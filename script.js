@@ -1,6 +1,5 @@
 // Assignment code here
 
-
 function obtainInfo() {
     //First, ask the user how long they would like the password to be with a prompt (have them choose between 8 and 128)
     var passLength = parseInt(prompt("How many characters would you like your password to have? (Minumum 8 to Maxumum 128)"),10);
@@ -9,13 +8,15 @@ function obtainInfo() {
     }
     else if(isNaN(passLength) === true || passLength === "" || passLength === null || passLength < 8 || passLength > 128) { 
         prompt("Oops! No number was entered or input does not match criteria.  Try again!")
+        obtainInfo();
     } 
+    else {
     alert("Thank you, please select from the following character types.")
     console.log("obtain info function");
     console.log("Password Length " + passLength);
     charType(passLength);
+    }
 };
-
 
 function charType(passLength) {
 //Ask user if they want to use upper and lower case characters
@@ -45,7 +46,7 @@ var specialChars = ["!","#","$","%","^","&","*","(",")","","-","+","<",">",",","
 var userSelection;
 
 function validateWndow(passwordUpper, passwordLower, passwordNum, passwordSpec, passLength) {
-    alert("You have selected a password " + passLength + " characters in length, using the following:  \r\nUppercase: " + validateWndow.passwordUpper + "\r\nLowercase: " + validateWndow.passwordLower + "\r\nNumber: " + validateWndow.passwordNum + "\r\nSpecial Characters: " + validateWndow.passwordSpec);
+    alert("You have selected a password " + passLength + " characters in length, using the following:  \r\nUppercase: " + passwordUpper + "\r\nLowercase: " + passwordLower + "\r\nNumber: " + passwordNum + "\r\nSpecial Characters: " + passwordSpec);
     //4 false options alert
     if(!passwordUpper && !passwordLower && !passwordNum && !passwordSpec) {
         alert("At least 2 character type options must be selected.  Try again.")
@@ -87,10 +88,10 @@ function validateWndow(passwordUpper, passwordLower, passwordNum, passwordSpec, 
     else if(passwordNum && passwordSpec) {
         var userChoices = numberChars.concat(specialChars);
     }  
-//     else {
-//         alert("At least 2 character type options must be selected.  Try again.");
-//         charType();
-//     }
+    else {
+        alert("At least 2 character type options must be selected.  Try again.");
+        charType();
+    }
 var passString = userChoices.join("");
 console.log(passString);
 writePassword(passString, passLength);
