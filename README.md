@@ -1,4 +1,4 @@
-# Password Generator Starter Code
+# Password Generator Challenge
 
 ## Purpose
 A javascript website that delivers a randomly generated password based on a user's selected criteria
