@@ -44,7 +44,7 @@ var numberChars = ["1","2","3","4","5","6","7","8","9","0"]
 var specialChars = ["!","#","$","%","^","&","*","(",")","","-","+","<",">",",","?","/",";",":","'","@","_"]
 var userSelection;
 
-function validateWndow(passwordUpper,passwordLower,passwordNum,passwordSpec,passLength,passString) {
+function validateWndow(passwordUpper, passwordLower, passwordNum, passwordSpec, passString, passLength) {
     alert("You have selected a password " + passLength + " characters in length, using the following:  \r\nUppercase: " + validateWndow.passwordUpper + "\r\nLowercase: " + validateWndow.passwordLower + "\r\nNumber: " + validateWndow.passwordNum + "\r\nSpecial Characters: " + validateWndow.passwordSpec);
     //4 false options alert
     if(!passwordUpper && !passwordLower && !passwordNum && !passwordSpec) {
@@ -102,13 +102,13 @@ function writePassword(passwordChars, passLength) {
     for (var i = 0; i < passLength; i++) {
         password += passwordChars.charAt(Math.floor(Math.random() * passwordChars.length));
     }
-    console.log(password);
-}
+    console.log(password)
+};
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+// var generateBtn = document.querySelector("#generate");
 
 
-// // Write password to the #password input
+// Write password to the #password input
 // function writePassword(password) {
 // var password = generatePassword(createdPassword);
 // var passwordText = document.querySelector("#password");
